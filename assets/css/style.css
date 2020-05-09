@@ -273,6 +273,7 @@
     margin: 0;
     display: flex;
     justify-content: space-around;
+    height: 50px;
 }
 
 .tabs li {
@@ -309,6 +310,7 @@
 
 .tab:hover {
     background-color: rgba(243, 245, 249, 0.5);
+
 }
 
 .tab svg {
