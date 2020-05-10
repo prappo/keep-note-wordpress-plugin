@@ -1,8 +1,12 @@
+<?php
+defined('ABSPATH') || exit;
+?>
+
+
 <div id="kn-editor">
     <div class="inspector">
         <div class="kn-header">
-            <!-- react-text: 4 -->
-            <!-- /react-text -->
+
             <h3 class="kn-title">Note</h3>
             <div class="kn-header__close">
                 <div>

@@ -84,6 +84,7 @@ jQuery(document).ready(function ($) { //wrapper
 
 
     $("#kn_txt").on('change keyup paste', function () {
+        $('.kn-title').html('Note*');
         localStorage.setItem("kn_txt_data", $(this).val());
     });
 
@@ -107,8 +108,27 @@ jQuery(document).ready(function ($) { //wrapper
 
 
     $('#tab_save').click(function () {
-        alert('Saved');
+        $.ajax({
+            type: 'POST',
+            url: ajax_object.ajax_url,
+            data: {
+                'action': 'kn_save_txt',
+                'kn_text': $('#kn_txt').val()
+            },
+            success: function (data) {
+                $('.kn-title').html('Saved');
+                setTimeout(function(){
+                    $('.kn-title').html('Note');
+                },1000);
+
+            },
+            error:function (data) {
+                alert('Something went wrong');
+            }
+        });
     });
+
+
 
 
 });

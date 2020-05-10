@@ -8,13 +8,9 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              http://example.com
- * @since             1.0.0
- * @package           Keep_Note
- *
  * @wordpress-plugin
  * Plugin Name:       Keep Note
- * Plugin URI:        http://example.com/plugin-name-uri/
+ * Plugin URI:        http://wpsega.com
  * Description:       Simple and light keep note plugin that will help you to save note.
  * Version:           1.0.0
  * Author:            Prappo Prince
@@ -28,26 +24,62 @@
 
 defined('ABSPATH') || exit;
 
-define('KEEP_NOTE_VERSION', 1.00);
+define('KEEP_NOTE_VERSION', '1.0.0');
 
 
-
+/**
+ * Essentials scripts to load keep note in the
+ * Wordpress admin panel
+ *
+ * @return  void
+ * @since   1.0.0
+ */
 function kn_admin_scripts()
 {
 
     wp_enqueue_script("jquery-ui-draggable");
-
-    wp_enqueue_script('kn_script', plugin_dir_url(__FILE__) . '/assets/js/script.js', array('jquery'), 1.1, true);
-    wp_enqueue_style('kn_style', plugin_dir_url(__FILE__) . '/assets/css/style.css', false);
+    wp_enqueue_script('kn_script', plugin_dir_url(__FILE__) . 'assets/js/script.js', array('jquery'), KEEP_NOTE_VERSION, true);
+    wp_localize_script('kn_script','ajax_object',[
+       'ajaxurl' => admin_url('admin-ajax.php')
+    ]);
+    wp_enqueue_style('kn_style', plugin_dir_url(__FILE__) . 'assets/css/style.css', false);
 
 
 }
 
 
+/**
+ * Template file where the markup written
+ *
+ * @since   1.0.0
+ */
 function kn_html_template()
 {
     include 'template.php';
 }
 
+/**
+ * Save note to database
+ *
+ * @since  1.0.0
+ */
+
+function kn_save_txt(){
+    $kn_txt = $_POST['kn_save_txt'];
+    update_option('kn_txt',$kn_txt);
+}
+
+/**
+ * Send saved note to admin
+ *
+ * @since   1.0.0
+ */
+
+function kn_get_txt(){
+    echo get_option('kn_txt');
+}
+
 add_action('admin_enqueue_scripts', 'kn_admin_scripts');
 add_action('admin_footer', 'kn_html_template');
+add_action('wp_ajax_kn_save_txt','kn_save_txt');
+add_action('wp_ajax_kn_get_txt','kn_get_txt');
