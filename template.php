@@ -143,7 +143,7 @@ defined('ABSPATH') || exit;
                         <li>
                             <div id="tab_note" class="kn-tooltip--wrapper">
                                 <div class="kn-tooltip">
-                                    <div class="kn-tooltip--content">New</div>
+                                    <div id="kn-new" class="kn-tooltip--content">New</div>
                                 </div>
                                 <div class="tab">
                                     <div>
