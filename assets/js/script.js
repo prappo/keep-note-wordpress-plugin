@@ -1,4 +1,4 @@
-jQuery(document).ready(function ($) { //wrapper
+jQuery(document).ready(function($) { //wrapper
 
     /**
      * ==================================================
@@ -8,7 +8,8 @@ jQuery(document).ready(function ($) { //wrapper
      */
 
 
-    let default_position_top = 20, default_position_left = 1000
+    let default_position_top = 20,
+        default_position_left = 1000
 
 
     if (localStorage.getItem('kn_editor_post_left')) {
@@ -73,7 +74,7 @@ jQuery(document).ready(function ($) { //wrapper
 
     $("#kn-editor").draggable({
         handle: '.kn-header',
-        drag: function () {
+        drag: function() {
             var offset = $(this).offset();
             var x = $("#kn-editor").position();
             localStorage.setItem("kn_editor_post_top", x.top);
@@ -83,13 +84,13 @@ jQuery(document).ready(function ($) { //wrapper
     });
 
 
-    $("#kn_txt").on('change keyup paste', function () {
+    $("#kn_txt").on('change keyup paste', function() {
         $('.kn-title').html('Note*');
         localStorage.setItem("kn_txt_data", $(this).val());
     });
 
 
-    $('.kn-header__close').click(function () {
+    $('.kn-header__close').click(function() {
 
 
         $('#kn-editor-body').toggle();
@@ -107,7 +108,8 @@ jQuery(document).ready(function ($) { //wrapper
     });
 
 
-    $('#tab_save').click(function () {
+
+    $('#tab_save').click(function() {
         $.ajax({
             type: 'POST',
             url: ajax_object.ajax_url,
@@ -115,14 +117,15 @@ jQuery(document).ready(function ($) { //wrapper
                 'action': 'kn_save_txt',
                 'kn_text': $('#kn_txt').val()
             },
-            success: function (data) {
+            success: function(data) {
                 $('.kn-title').html('Saved');
-                setTimeout(function(){
+                setTimeout(function() {
                     $('.kn-title').html('Note');
-                },1000);
+                }, 1000);
 
             },
-            error:function (data) {
+            error: function(data) {
+                console.log(data.responseText);
                 alert('Something went wrong');
             }
         });
