@@ -133,6 +133,7 @@ jQuery(document).ready(function($) { //wrapper
 
     $('#kn-new').click(function() {
         $('#kn_txt').val('');
+        // alert('Working');
     });
 
 

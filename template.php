@@ -141,9 +141,9 @@ defined('ABSPATH') || exit;
                             </div>
                         </li>
                         <li>
-                            <div id="tab_note" class="kn-tooltip--wrapper">
+                            <div id="kn-new" class="kn-tooltip--wrapper">
                                 <div class="kn-tooltip">
-                                    <div id="kn-new" class="kn-tooltip--content">New</div>
+                                    <div  class="kn-tooltip--content">New</div>
                                 </div>
                                 <div class="tab">
                                     <div>
