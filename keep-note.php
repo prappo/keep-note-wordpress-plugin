@@ -10,11 +10,11 @@
  *
  * @wordpress-plugin
  * Plugin Name:       Keep Note
- * Plugin URI:        http://wpsega.com
+ * Plugin URI:        https://prappo.dev
  * Description:       Simple and light keep note plugin that will help you to save note.
  * Version:           1.0.0
  * Author:            Prappo Prince
- * Author URI:        http://wpsega.com/
+ * Author URI:        http://prappo.dev
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       wpsega
@@ -39,9 +39,7 @@ function kn_admin_scripts()
 
     wp_enqueue_script("jquery-ui-draggable");
     wp_enqueue_script('kn_script', plugin_dir_url(__FILE__) . 'assets/js/script.js', array('jquery'), KEEP_NOTE_VERSION, true);
-    wp_localize_script('kn_script','ajax_object',[
-       'ajaxurl' => admin_url('admin-ajax.php')
-    ]);
+
     wp_enqueue_style('kn_style', plugin_dir_url(__FILE__) . 'assets/css/style.css', false);
 
 
@@ -65,8 +63,9 @@ function kn_html_template()
  */
 
 function kn_save_txt(){
-    $kn_txt = $_POST['kn_save_txt'];
+    $kn_txt = esc_html__( $_POST['kn_text'] );
     update_option('kn_txt',$kn_txt);
+    wp_die();
 }
 
 /**
@@ -76,7 +75,9 @@ function kn_save_txt(){
  */
 
 function kn_get_txt(){
-    echo get_option('kn_txt');
+    $text = get_option('kn_txt');
+    echo $text;
+    wp_die();
 }
 
 add_action('admin_enqueue_scripts', 'kn_admin_scripts');
