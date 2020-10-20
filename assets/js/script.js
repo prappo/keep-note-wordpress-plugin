@@ -40,8 +40,6 @@ jQuery(document).ready(function ($) { //wrapper
     }
 
 
-
-
     /**
      * Check and control window content visibility
      */
@@ -52,12 +50,12 @@ jQuery(document).ready(function ($) { //wrapper
 
     } else if (localStorage.getItem("kn_editor_visible") == 'no') {
 
-        $('#kn-editor-body').hide();
+        $('#kn-editor').hide();
 
 
     } else {
 
-        $('#kn-editor-body').show();
+        $('#kn-editor').show();
 
     }
 
@@ -84,22 +82,22 @@ jQuery(document).ready(function ($) { //wrapper
     });
 
     localStorage.setItem("kn_editor_visible", "yes");
-    // $('.kn-header__close').click(function() {
+    $('.kn-header__close').click(function () {
 
 
-    //     $('#kn-editor-body').toggle();
+        $('#kn-editor-body').toggle();
 
 
-    //     if ($("#kn-editor-body").is(':visible')) {
+        if ($("#kn-editor-body").is(':visible')) {
 
-    //         localStorage.setItem("kn_editor_visible", "yes");
+            localStorage.setItem("kn_editor_visible", "yes");
 
-    //     } else {
+        } else {
 
-    //         localStorage.setItem("kn_editor_visible", "no");
+            localStorage.setItem("kn_editor_visible", "no");
 
-    //     }
-    // });
+        }
+    });
 
 
 
@@ -147,8 +145,5 @@ jQuery(document).ready(function ($) { //wrapper
 
         }
     });
-
-
-
 
 });

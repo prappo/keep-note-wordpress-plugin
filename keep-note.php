@@ -26,6 +26,8 @@ defined('ABSPATH') || exit;
 
 define('KEEP_NOTE_VERSION', '1.0.0');
 
+require 'settings.php';
+
 
 /**
  * Essentials scripts to load keep note in the
