@@ -15,7 +15,7 @@ if(isset($options['status'])) {
         <div class="kn-header">
 
             <h3 class="kn-title"><?php echo esc_html('Note','keepnote') ?></h3>
-            <a href="<?php  menu_page_url('keep_note_page')?>">
+            <a href="<?php echo menu_page_url('keep_note_page' , false) . '&close_window=yes'?>">
             <div class="kn-header__close">
                 <div>
                     <!--?xml version="1.0" encoding="UTF-8"?-->

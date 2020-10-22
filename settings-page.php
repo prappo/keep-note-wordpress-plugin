@@ -1,7 +1,6 @@
 <?php
 
-defined('ABSPATH') || die ;
-
+defined('ABSPATH') || exit;
 
 ?>
 
@@ -13,6 +12,8 @@ defined('ABSPATH') || die ;
     <?php settings_fields( 'keep-note-plugin-settings-group' ); ?>
     <?php do_settings_sections( 'keep-note-plugin-settings-group' ); ?>
     <table class="form-table">
+
+
         <tr valign="top">
         <th scope="row">Show note window</th>
         <td>
@@ -25,8 +26,17 @@ defined('ABSPATH') || die ;
         }
 
         ?>
-<label><input type="radio" name="show_note_window[status]" value="yes"<?php checked( 'yes' == $options['status'] ); ?> /> Yes </label> <div style="width: 20px"></div>
-<label><input type="radio" name="show_note_window[status]" value="no"<?php checked( 'no' == $options['status'] ); ?> /> No </label>
+
+        <label><input type="radio" name="show_note_window[status]" value="yes"<?php checked( 'yes' == $options['status'] ); ?> /> Yes </label> <div style="width: 20px"></div>
+        <label><input type="radio" name="show_note_window[status]" value="no"<?php checked( 'no' == $options['status'] ); ?> /> No </label>
+ 
+        </tr>
+
+        <tr valign="top">
+        <th scope="row">Reset default window position</th>
+        <td>
+        <button type="button" class="button btn_set_default_postion">Reset</button>
+
         </tr>
 
 

@@ -65,7 +65,7 @@ jQuery(document).ready(function ($) { //wrapper
      */
 
     $("#kn-editor").draggable({
-        handle: '.kn-header',
+        handle: '.kn-header, .tabs',
         drag: function () {
             var offset = $(this).offset();
             var x = $("#kn-editor").position();
@@ -74,6 +74,7 @@ jQuery(document).ready(function ($) { //wrapper
 
         }
     });
+
 
 
     $("#kn_txt").on('change keyup paste', function () {
@@ -143,6 +144,17 @@ jQuery(document).ready(function ($) { //wrapper
             }
 
         }
+    });
+
+
+    $('.btn_set_default_postion , #wp-admin-bar-keep-note-reset-window').click(function () {
+        $('#kn-editor').offset({
+            'left': default_position_left,
+            'top': default_position_top
+        });
+
+        localStorage.setItem("kn_editor_post_top", default_position_top);
+        localStorage.setItem("kn_editor_post_left", default_position_left);
     });
 
 });
