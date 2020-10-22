@@ -17,7 +17,7 @@
  * Author URI:        http://prappo.dev
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       wpsega
+ * Text Domain:       keepnote
  * Domain Path:       /languages
  */
 
@@ -26,7 +26,7 @@ defined('ABSPATH') || exit;
 
 define('KEEP_NOTE_VERSION', '1.0.0');
 
-require 'settings.php';
+
 
 
 /**
@@ -86,3 +86,5 @@ add_action('admin_enqueue_scripts', 'kn_admin_scripts');
 add_action('admin_footer', 'kn_html_template');
 add_action('wp_ajax_kn_save_txt','kn_save_txt');
 add_action('wp_ajax_kn_get_txt','kn_get_txt');
+
+require 'settings.php';

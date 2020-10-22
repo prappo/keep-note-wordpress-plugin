@@ -13,8 +13,18 @@ function kn_settings_menu(){
         'kn_settings_page',
         'dashicons-welcome-write-blog'
     );
+
+    add_action( 'admin_init', 'keepnote_plugin_settings' );
+
+
+}
+
+function keepnote_plugin_settings() {
+	//register our settings
+	register_setting( 'keep-note-plugin-settings-group', 'show_note_window' );
+
 }
 
 function kn_settings_page(){
-    echo "ok";
+    require_once 'settings-page.php';
 }

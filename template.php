@@ -1,5 +1,12 @@
 <?php
 defined('ABSPATH') || exit;
+$options = get_option( 'show_note_window' );
+
+if(isset($options['status'])) {
+    if($options['status'] == 'no'){
+        return ;
+    }
+}
 ?>
 
 
@@ -7,7 +14,8 @@ defined('ABSPATH') || exit;
     <div class="inspector">
         <div class="kn-header">
 
-            <h3 class="kn-title">Note</h3>
+            <h3 class="kn-title"><?php echo esc_html('Note','keepnote') ?></h3>
+            <a href="<?php  menu_page_url('keep_note_page')?>">
             <div class="kn-header__close">
                 <div>
                     <!--?xml version="1.0" encoding="UTF-8"?-->
@@ -24,6 +32,7 @@ defined('ABSPATH') || exit;
                     </svg>
                 </div>
             </div>
+            </a>
 
         </div>
         <div id="kn-editor-body">
@@ -78,7 +87,7 @@ defined('ABSPATH') || exit;
                         <li>
                             <div id="tab_save" class="kn-tooltip--wrapper">
                                 <div class="kn-tooltip">
-                                    <div class="kn-tooltip--content">Save</div>
+                                    <div class="kn-tooltip--content"><?php echo esc_html('Save','keepnote')?></div>
                                 </div>
                                 <!--  Use tab__active class to active -->
                                 <div class="tab ">
@@ -143,7 +152,7 @@ defined('ABSPATH') || exit;
                         <li>
                             <div id="kn-new" class="kn-tooltip--wrapper">
                                 <div class="kn-tooltip">
-                                    <div  class="kn-tooltip--content">New</div>
+                                    <div  class="kn-tooltip--content"><?php echo esc_html('New','keepnote') ?></div>
                                 </div>
                                 <div class="tab">
                                     <div>
@@ -161,8 +170,9 @@ defined('ABSPATH') || exit;
                         </li>
                         <li>
                             <div id="tab_settings" class="kn-tooltip--wrapper">
+                            <a href="<?php  menu_page_url('keep_note_page')?>">
                                 <div class="kn-tooltip">
-                                    <div class="kn-tooltip--content">Settings</div>
+                                    <div class="kn-tooltip--content"><?php echo esc_html('Settings','keepnote') ?></div>
                                 </div>
                                 <div class="tab">
                                     <div>
@@ -184,6 +194,7 @@ defined('ABSPATH') || exit;
                                         </svg>
                                     </div>
                                 </div>
+                                </a>
                             </div>
                         </li>
                     </ul>

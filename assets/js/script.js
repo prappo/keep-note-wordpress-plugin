@@ -7,6 +7,7 @@ jQuery(document).ready(function ($) { //wrapper
      * ==================================================
      */
 
+    localStorage.setItem("kn_editor_visible", "yes");
 
     let default_position_top = 20,
         default_position_left = 1000
@@ -52,7 +53,6 @@ jQuery(document).ready(function ($) { //wrapper
 
         $('#kn-editor').hide();
 
-
     } else {
 
         $('#kn-editor').show();
@@ -82,22 +82,21 @@ jQuery(document).ready(function ($) { //wrapper
     });
 
     localStorage.setItem("kn_editor_visible", "yes");
-    $('.kn-header__close').click(function () {
 
+    // $('.kn-header__close').click(function () {
 
-        $('#kn-editor-body').toggle();
+    //     $('#kn-editor-body').toggle();
 
+    //     if ($("#kn-editor-body").is(':visible')) {
 
-        if ($("#kn-editor-body").is(':visible')) {
+    //         localStorage.setItem("kn_editor_visible", "yes");
 
-            localStorage.setItem("kn_editor_visible", "yes");
+    //     } else {
 
-        } else {
+    //         localStorage.setItem("kn_editor_visible", "no");
 
-            localStorage.setItem("kn_editor_visible", "no");
-
-        }
-    });
+    //     }
+    // });
 
 
 
