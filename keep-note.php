@@ -57,7 +57,7 @@ function keepnote_html_template()
  */
 
 function keepnote_save_txt(){
-    $kn_txt = esc_html__( $_POST['kn_text'] );
+    $kn_txt = sanitize_textarea_field( $_POST['kn_text'] );
     update_option('kn_txt',$kn_txt);
     wp_die();
 }

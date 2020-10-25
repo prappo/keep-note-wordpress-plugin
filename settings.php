@@ -2,16 +2,16 @@
 
 defined('ABSPATH') || exit;
 
-add_action('admin_menu','kn_settings_menu');
+add_action('admin_menu','keep_note_settings_menu');
 
 
-function kn_settings_menu(){
+function keep_note_settings_menu(){
     add_menu_page(
         'Keep Note',
         'Keep Note',
         'manage_options',
         'keep_note_page',
-        'kn_settings_page',
+        'keep_note_settings_page',
         'dashicons-welcome-write-blog'
     );
 
@@ -26,7 +26,7 @@ function keepnote_plugin_settings() {
 
 }
 
-function kn_settings_page(){
+function keep_note_settings_page(){
     require_once 'settings-page.php';
 }
 
